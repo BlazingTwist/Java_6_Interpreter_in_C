@@ -3,8 +3,6 @@ project(C_JVM C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_compile_options(-municode)
-
 set(
         JVM_INCLUDES
         "jvm/include/config.h" "jvm/include/interpretedjvm.h" "jvm/include/definition/accessflags.h"
