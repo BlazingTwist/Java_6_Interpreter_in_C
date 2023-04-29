@@ -24,7 +24,16 @@ set(
         "jvm/src/util/utf8_utils.c"
 )
 
-add_executable(1_1_tree pgp/ex1/tree.c ${JVM_INCLUDES} ${JVM_SOURCES})
-add_executable(2_1_anagram pgp/ex2/anagram.c ${JVM_INCLUDES} ${JVM_SOURCES})
-add_executable(2_2_concat pgp/ex2/concat.c ${JVM_INCLUDES} ${JVM_SOURCES})
-add_executable(2_3_dynArray pgp/ex2/dynamic_array.c ${JVM_INCLUDES} ${JVM_SOURCES})
+add_library(LIB_JVM ${JVM_INCLUDES} ${JVM_SOURCES})
+
+add_executable(1_1_tree pgp/ex1/tree.c)
+target_link_libraries(1_1_tree PUBLIC LIB_JVM)
+
+add_executable(2_1_anagram pgp/ex2/anagram.c)
+target_link_libraries(2_1_anagram PUBLIC LIB_JVM)
+
+add_executable(2_2_concat pgp/ex2/concat.c)
+target_link_libraries(2_2_concat PUBLIC LIB_JVM)
+
+add_executable(2_3_dynArray pgp/ex2/dynamic_array.c)
+target_link_libraries(2_3_dynArray PUBLIC LIB_JVM)
